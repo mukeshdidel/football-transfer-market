@@ -1,0 +1,23 @@
+
+#leagues{
+    box-shadow: 10px 10px 15px;
+    border-radius: 25px;
+    text-align: center;
+    padding: 10px;
+}
+
+#leagueslist{
+    margin:30px;
+    list-style-type: none;
+}
+
+#leagueslist li{
+    padding: 5px;
+    margin: 5px;
+    border-bottom: 1px solid;
+}
+
+#leagueslist a{
+    text-decoration: none;
+    color: black;
+}
