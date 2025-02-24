@@ -17,6 +17,9 @@ async function getAllLeagues(){
 }
 //const leagues = await getAllLeagues();
 //console.log(leagues);
+ async function insertleague(league_name , country){
+    await pool.query(`INSERT INTO leagues (league_name, country) VALUES (?,?);`,[league_name, country])
+}
 
 
 
@@ -24,6 +27,4 @@ async function getAllLeagues(){
 
 
 
-
-
-export {getAllLeagues}
+export {getAllLeagues ,insertleague }

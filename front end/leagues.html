@@ -27,7 +27,18 @@
 
         </ul>
     </div>
+    <h3>add League</h3>
+    <form action="http://localhost:5000/insertleague" method="POST">
+        <div>
+            <label for="name">League Name:</label>
+            <input type="text" id="name" name="league_name"><br>
+            <label for="country">country:</label>
+            <input type="text" id="country" name="country"><br>
+            <button type="submit" id="submit">submit</button>
 
-    <script src="script.js"></script>
+        </div>
+    </form>
+
+    <script type="module" src="script.js"></script>
 </body>
 </html>

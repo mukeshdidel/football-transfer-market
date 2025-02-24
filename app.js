@@ -1,6 +1,6 @@
 
 import express from 'express';
-import { getAllLeagues } from './database.js';
+import { getAllLeagues ,insertleague } from './database.js';
 import cors from 'cors'
 
 const app = express();
@@ -16,7 +16,11 @@ app.get('/leagues', async function (req, res) {
 })
 
 
-
+app.post('/insertleague', async function (req, res) {
+    const {league_name, country} = await req.body
+    await insertleague(league_name, country);
+    res.send('League added successfully')
+})
 
 
 
