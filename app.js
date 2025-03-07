@@ -1,6 +1,6 @@
 
 import express from 'express';
-import { getAllLeagues ,insertleague } from './database.js';
+import { getAllLeagues ,insertleague , getAllClubs,getClubsByLeague} from './database.js';
 import cors from 'cors'
 
 const app = express();
@@ -21,6 +21,36 @@ app.post('/insertleague', async function (req, res) {
     await insertleague(league_name, country);
     res.send('League added successfully')
 })
+
+
+
+//-------------clubs-------------------------------
+
+app.get('/clubs', async function (req, res) {
+    const clubs = await getAllClubs()
+    res.json(clubs)
+}); 
+
+app.get('/clubs/:id', async function (req, res) {
+    try {
+        const league_id = req.params.id;
+
+        
+        const clubs = await getClubsByLeague(league_id);            
+        
+
+
+        if (!clubs) {
+            return res.status(404).json({ message: "No clubs found" });
+        }
+
+        res.json(clubs);
+    } catch (error) {
+        console.error("Error fetching clubs:", error);
+        res.status(500).json({ message: "Server error", error: error.message });
+    }
+});
+
 
 
 

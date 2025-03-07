@@ -1,0 +1,59 @@
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box; 
+}
+
+
+body{
+    background-image: url(background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;  
+
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+
+}
+
+h1{
+    margin: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    color: #ffffff;    
+}
+
+
+#menu{
+    height: 50px;
+    width: 80%;
+    box-shadow: 3px 3px 7px #222e50;
+    border-radius: 25px;
+    background-color: #222e50;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+    
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+
+.menuliste a{
+    text-decoration: none;
+    color: white;
+
+}
+
+.menuliste a:hover{
+    color: #ffffff;
+    text-shadow: 2px 2px 5px white;
+
+}

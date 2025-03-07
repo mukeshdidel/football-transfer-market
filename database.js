@@ -23,8 +23,22 @@ async function getAllLeagues(){
 
 
 
+//--------clubs------------------
+
+async function getAllClubs(){
+    const [clubs] = await pool.query(`
+        select club_name , league_name from clubs natural join leagues;
+    `);
+    return clubs;
+}
+
+async function getClubsByLeague(league_id)
+{
+    const [clubs] = await pool.query(`
+        select club_name , league_name from clubs natural join leagues where league_id = ?;
+        `, [league_id]);
+    return clubs;
+}
 
 
-
-
-export {getAllLeagues ,insertleague }
+export {getAllLeagues ,insertleague ,getAllClubs, getClubsByLeague}
