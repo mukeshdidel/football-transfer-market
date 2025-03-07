@@ -1,6 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     // Ensure we only fetch clubs if we're on clubs.html
+    // --------club--------
     if (document.getElementById("clubList")) {
         const urlParams = new URLSearchParams(window.location.search);
         const league_id = urlParams.get('league_id');
@@ -12,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
             getClubsByLeague(null);
         }
     }
+    // --------leagues--------
     if(document.getElementById("form1")){
         document.getElementById("form1").addEventListener('submit', event=>submitLeagueForm(event));
     }
@@ -19,13 +21,25 @@ document.addEventListener("DOMContentLoaded", () => {
     if (document.getElementById("leagueList")) {
         getAllLeagues();
     }
+    
+    //------club details------
+
+
+    if(document.getElementById('DclubName')){
+        const urlParams = new URLSearchParams(window.location.search);
+        const club_id = urlParams.get('club_id');
+        getClubDetails(club_id);
+    }
+
+
+
 });
 
 
 
 //-----------leagues------------------
-//-------------------------------------------------------
-//-----------------------------------------------------------
+
+
 const leagueForm = document.getElementById("form1")
 async function submitLeagueForm(event) {
     event.preventDefault(); // Prevent default form submission
@@ -109,9 +123,25 @@ async function getClubsByLeague(league_id){
             <h3>${club.club_name}</h3>
             <p>${club.league_name}</p>
         `;
-        clubA.href = ``;
+        clubA.href = `clubdetails.html?club_id=${club.club_id}`;
         clubA.appendChild(clubDiv);
         clubList.appendChild(clubA);
     });
 }
 
+//----------------club details------------
+
+async function getClubDetails(club_id1){
+    //-------fetching club name for heading-----
+    const DclubName = document.getElementById('DclubName');
+    const found_year = document.getElementById('found_year');
+    const response = await fetch(`http://localhost:5000/clubdetails/${club_id1}`);    
+    const club = await response.json();
+    console.log(club[0]);
+    DclubName.innerHTML = club[0].club_name
+    found_year.innerHTML = club[0].founded_year
+
+    //
+    
+    
+}

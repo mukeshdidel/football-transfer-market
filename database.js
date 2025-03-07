@@ -27,7 +27,7 @@ async function getAllLeagues(){
 
 async function getAllClubs(){
     const [clubs] = await pool.query(`
-        select club_name , league_name from clubs natural join leagues;
+        select club_id, club_name , league_name from clubs natural join leagues;
     `);
     return clubs;
 }
@@ -35,10 +35,16 @@ async function getAllClubs(){
 async function getClubsByLeague(league_id)
 {
     const [clubs] = await pool.query(`
-        select club_name , league_name from clubs natural join leagues where league_id = ?;
+        select club_id, club_name , league_name from clubs natural join leagues where league_id = ?;
         `, [league_id]);
     return clubs;
 }
 
+async function getClubDetails(club_id){
+    const [clubs] = await pool.query(`
+        select * from clubs where club_id = ?;
+        `, [club_id]);
+    return clubs;
+}
 
-export {getAllLeagues ,insertleague ,getAllClubs, getClubsByLeague}
+export {getAllLeagues ,insertleague ,getAllClubs, getClubsByLeague,getClubDetails}

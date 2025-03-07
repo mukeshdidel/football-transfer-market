@@ -1,6 +1,6 @@
 
 import express from 'express';
-import { getAllLeagues ,insertleague , getAllClubs,getClubsByLeague} from './database.js';
+import { getAllLeagues ,insertleague , getAllClubs,getClubsByLeague , getClubDetails} from './database.js';
 import cors from 'cors'
 
 const app = express();
@@ -35,15 +35,11 @@ app.get('/clubs/:id', async function (req, res) {
     try {
         const league_id = req.params.id;
 
-        
         const clubs = await getClubsByLeague(league_id);            
-        
-
 
         if (!clubs) {
             return res.status(404).json({ message: "No clubs found" });
         }
-
         res.json(clubs);
     } catch (error) {
         console.error("Error fetching clubs:", error);
@@ -51,7 +47,20 @@ app.get('/clubs/:id', async function (req, res) {
     }
 });
 
-
+app.get('/clubdetails/:id',async function (req, res){
+    try {
+        const club_id = req.params.id;
+        const club = await getClubDetails(club_id);
+        if (!club) {
+            return res.status(404).json({ message: "No club found" });
+        }
+        res.json(club);
+        
+    } catch (error) {
+        console.error("Error fetching club details:", error);
+        res.status(500).json({ message: "Server error", error: error.message });
+    }
+});
 
 
 app.use((err,req,res,next) => {
