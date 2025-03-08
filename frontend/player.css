@@ -51,7 +51,7 @@ h3{
 
     
     display: flex;
-    justify-content: center;
+    justify-content: cente;
     align-items: center;
     flex-flow: column;  
 }

@@ -12,7 +12,48 @@ h3{
     margin-block: 10px;
 }
 
+#formcontainer1
+{
+    width: 100%;
+    margin-block: 20px;
+}
+#form2{    
+    
+    background-color:#222e50;
 
+    box-shadow: 2px 2px 5px #222e50;
+    border-radius: 25px;
+    min-width: 300px;
+    width:35%;
+    padding: 20px 50px;  
+    margin-inline: auto;   
+    
+    display: none;  
+    justify-content: center;
+    align-content: center;
+    flex-flow: wrap column;
+}
+#form2 label{
+    text-align: center;
+    color: white;
+
+ }
+#form2 input{
+    box-shadow: 2px 2px 5px white;
+    border-radius: 20px;
+    padding: 5px;
+    border: none;
+ }
+
+#form2 button{
+    box-shadow: 2px 2px 5px white;
+    border-radius: 20px;
+    border: none;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    width:70px;
+    margin-inline: auto; 
+}
 
 #clubList{
 

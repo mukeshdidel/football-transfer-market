@@ -35,7 +35,7 @@ h3{
 }
 #form1 label{
     text-align: center;
-    color: #39ff14;
+    color: white;
 
  }
 #form1 input{
@@ -45,7 +45,7 @@ h3{
     border: none;
  }
 
- #form1 button{
+#form1 button{
     box-shadow: 2px 2px 5px white;
     border-radius: 20px;
     border: none;

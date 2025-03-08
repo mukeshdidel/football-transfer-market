@@ -29,14 +29,13 @@ p{
 
 #clubInfo{   
     width: 100%;
-    height: 75vh;
     margin: 30px;
-    
-    display: grid;
-    grid-template-columns: 1.3fr 2fr;
-    grid-auto-rows: 1fr 1fr;
-    gap : 10px;
-    padding: 20px;
+    padding: 20px;    
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
 
 }
 
@@ -44,27 +43,58 @@ p{
     background-color: #222e50;
     color: white;
     border-radius: 25px;
+    margin: 5px;
+    padding-block:15px;
+    min-width:300px;
 
-    grid-column: 1/2;
-    grid-row: 1/3; 
 
-    min-width: 250px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: start;
+}
+#clubPlayersD div{
+    width: 80%;
+    background-color: #182341;
+    margin: 2px;
+    border-radius: 10px; 
+    padding: 5px;
+}
+
+#clubPlayersD div:hover{
+    background-color: #121828;
+    width:90%;
+}
+
+#clubPlayersD h3{
+    text-align: left;
+    font-size: 1rem;
+    margin-top:0px;
+}
+
+#clubPlayersD p{
+    text-align: left;
+    font-size: 0.9rem;
+    padding:0px;
+    margin: 1px;
+}
+
+
+
+
+#otherD{
+    margin:10px;
+    display: flex;
+    flex-direction: column;
 }
 
 #clubFinanceD{
     background-color: #222e50;
     color: white;
     border-radius: 25px;
-
-    grid-column: 2/3;
-    grid-row: 1/2; 
-
-    min-width: 300px;
+    margin-bottom: 5px;
+    padding:5px;
 
     display: flex;
     flex-direction: column;
@@ -72,16 +102,29 @@ p{
     justify-content: start;
 }
 
+#clubFinanceD table{
+    width: 90%;
+}
+#clubFinanceD table th{
+    text-align: center;
+    background-color: #182341;
+    padding: 10px;
+    border-radius: 10px;
+}
+#clubFinanceD table td{
+    text-align: center;
+    background-color: #182341;
+    padding: 3px;
+    border-radius: 10px;
+}
+
+
 #clubTransfers{
     background-color: #222e50;
     color: white;
     border-radius: 25px;
-
-    grid-column: 2/3;
-    grid-row: 2/3; 
-
-    min-width: 300px;
-    grid-auto-flow: ;
+    margin-block: 5px;
+    padding:5px;
 
     display: flex;
     flex-direction: column;

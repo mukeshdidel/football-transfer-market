@@ -1,6 +1,7 @@
 CREATE DATABASE football_market;
 USE football_market;
 
+
 CREATE TABLE leagues(
 					league_id int primary key auto_increment,
                     league_name varchar(50),
@@ -12,7 +13,7 @@ CREATE TABLE clubs(
                     club_name varchar(20),
                     league_id int,
                     founded_year int,
-                    colors varchar(20),
+
                     foreign key (league_id) references leagues(league_id)
 					);
 CREATE TABLE players( 
@@ -41,7 +42,7 @@ CREATE TABLE contracts(
                         club_id int,
                         start_date date,
                         end_date date,
-                        salary double(12,2),
+                        wages double(12,2),
                         foreign key (club_id) references clubs(club_id),
                         foreign key (player_id) references players(player_id));
                         
